@@ -3,10 +3,10 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from mealtimeapi.models import  User, Food, FoodType, Meal, MealFood
+from mealtimeapi.models import  User, Food, FoodType
 
 
-class ProductView(ViewSet):
+class FoodView(ViewSet):
     """Meal time food view"""
 
     def retrieve(self, request, pk):
@@ -29,16 +29,11 @@ class ProductView(ViewSet):
             Response -- JSON serialized list of foods
         """
         foods = Food.objects.all()
-        uid = request.META['HTTP_AUTHORIZATION']
-        user = User.objects.get(uid=uid)
-        meals = Meal.objects.filter(user_id=user)
-        for food in foods:
-            food.inmeal = len(MealFood.objects.filter(
-            meal_id__in=meals,  # Using the retrieved Order instances
-            food_id=food,
-        )) > 0
-        serializer = FoodSerializer(foods, many=True)
-        return Response(serializer.data, status = status.HTTP_200_OK)
+        user = request.query_params.get('user_id', None)
+        if user is not None:
+            foods = foods.filter(user=user)
+        serializer = FoodSerializer(foods, many=True, context={'request': request})
+        return Response(serializer.data)
     
     def create(self, request):
  
@@ -60,7 +55,7 @@ class ProductView(ViewSet):
         food = Food.objects.get(pk=pk)
         food.name = request.data["name"]
         food.image_url=request.data["imageUrl"]
-        food.type=FoodType.objects.get(pk=request.data["price"])
+        food.type=FoodType.objects.get(pk=request.data["foodType"])
         food.user_id= User.objects.get(pk=request.data["userId"])
 
         food.save()

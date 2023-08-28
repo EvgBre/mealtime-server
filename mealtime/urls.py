@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from rest_framework import routers
+from mealtimeapi.views import FoodView, MealView
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'foods', FoodView, 'food')
+router.register(r'meals', MealView, 'meal')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
 ]

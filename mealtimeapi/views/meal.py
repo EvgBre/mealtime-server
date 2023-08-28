@@ -73,7 +73,7 @@ class MealView(ViewSet):
 
 
 class MealSerializer(serializers.ModelSerializer):
-    """JSON serializer for events
+    """JSON serializer for meals
     """
     class Meta:
         model = Meal
