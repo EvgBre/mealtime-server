@@ -1,6 +1,6 @@
 from django.db import models
-from user import User
-from food_type import FoodType
+from .user import User
+from .food_type import FoodType
 
 class Food(models.Model):
     name = models.CharField(max_length=100)

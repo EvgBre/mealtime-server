@@ -1,0 +1,13 @@
+[
+    {
+      "model": "mealtimeapi.meal",
+      "pk": 1,
+      "fields": {
+        "name": "Chicken and Rice",
+        "grams": 0,
+        "dow": "2023-08-23",
+        "meal_time": "Lunch",
+        "user_id": 1
+      }
+    }
+  ]

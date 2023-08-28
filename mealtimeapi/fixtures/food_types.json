@@ -1,0 +1,23 @@
+[
+    {
+        "model": "mealtimeapi.foodtype",
+        "pk": 1,
+        "fields": {
+            "label": "Protein"
+        }
+    },
+    {
+        "model": "mealtimeapi.foodtype",
+        "pk": 2,
+        "fields": {
+            "label": "Carb"
+        }
+    },
+    {
+        "model": "mealtimeapi.foodtype",
+        "pk": 3,
+        "fields": {
+            "label": "Fat"
+        }
+    }
+]
