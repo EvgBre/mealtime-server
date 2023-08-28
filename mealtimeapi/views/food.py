@@ -50,8 +50,7 @@ class ProductView(ViewSet):
             name=request.data["name"],
             image_url=request.data["imageUrl"],
             type=foodType,
-            user_id=userId,
-            
+            user_id=userId
         )
         serializer = FoodSerializer(food)
         return Response(serializer.data)
