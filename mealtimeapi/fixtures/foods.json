@@ -1,0 +1,32 @@
+[
+    {
+        "model": "mealtimeapi.food",
+        "pk": 1,
+        "fields": {
+            "name": "Chicken Breast",
+            "image_url": "https://carmyy.com/wp-content/uploads/2021/09/Grilled-Chicken-Breasts-7.jpg",
+            "type": 1,
+            "user_id": 1
+        }
+    },
+    {
+        "model": "mealtimeapi.food",
+        "pk": 2,
+        "fields": {
+            "name": "Fried Rice",
+            "image_url": "https://mission-food.com/wp-content/uploads/2022/01/Spicy-Vegetable-Fried-Rice-Featured.jpg",
+            "type": 2,
+            "user_id": 1
+        }
+    },
+    {
+        "model": "mealtimeapi.food",
+        "pk": 3,
+        "fields": {
+            "name": "Avocado",
+            "image_url": "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/Avocados-3d84a3a.jpg?quality=90&resize=556,505",
+            "type": 3,
+            "user_id": 1
+        }
+    }
+]
