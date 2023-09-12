@@ -7,3 +7,4 @@ class Meal(models.Model):
     dow = models.DateField(auto_now_add=True)
     meal_time = models.CharField(max_length=50)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    

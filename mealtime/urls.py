@@ -17,13 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from mealtimeapi.views import FoodView, MealView
+from mealtimeapi.views.auth import register_user, check_user
+from mealtimeapi.views import FoodView, MealView, FoodTypeView, MealFoodView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'foods', FoodView, 'food')
 router.register(r'meals', MealView, 'meal')
+router.register(r'food_types', FoodTypeView, 'food_type')
+router.register(r'meal_foods', MealFoodView, 'meal_food')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('register', register_user),
+    path('checkuser', check_user)
 ]

@@ -3,7 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from mealtimeapi.models import Meal, User
+from mealtimeapi.models import Meal, User, Food, MealFood
 
 
 class MealView(ViewSet):
@@ -79,3 +79,4 @@ class MealSerializer(serializers.ModelSerializer):
         model = Meal
         fields = ('id', 'name', 'grams', 'dow', 'meal_time', 'user_id')
         depth = 1
+        
