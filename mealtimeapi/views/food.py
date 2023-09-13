@@ -94,7 +94,7 @@ class FoodView(ViewSet):
     def remove(self, request, pk):
             """Delete request for a user to remove a food from a meal"""
 
-            food = Food.objects.get(pk=request.data["foodId"])
+            food = Food.objects.get(pk=pk)
             meal = Meal.objects.get(pk=request.data["mealId"])
             try:
                 meal_food = MealFood.objects.get(food_id=food, meal_id=meal)
